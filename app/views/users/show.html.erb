@@ -1,0 +1,25 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+
+  <div class="span8">
+    <%= render 'follow_form' if signed_in? %>
+<!-- if @user.microposts.any? 如果用户没有发布微博的话，就不会显示后面的列表 -->
+  	<% if @user.microposts.any? %>
+  		<h3>微博(<%= @user.microposts.count%>)</h3>
+  		<ol class="microposts">
+  			<!-- 会使用名为_micropost.html.erb(存放在微博对应的视图文件夹中) 的局部视图渲染@microposts 变量中的每一个微博 -->
+  			<%= render @microposts %>
+  		</ol>
+
+  		<%= will_paginate @microposts %>
+  	<% end -%>
+  </div>
+</div>
