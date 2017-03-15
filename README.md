@@ -1,9 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+跟着 Ruby On Rails Tutorial 敲的源代码
 
 * Ruby version
 
