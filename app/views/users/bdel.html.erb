@@ -1,5 +1,6 @@
 <h1>All users</h1>
 <ul class="users">	
+	<input type="checkbox"  id="seleAll" />
 	<%= form_tag bdel_path, method: :delete do%>
 		<%= submit_tag "删除选中" %>
 		<table>
@@ -7,7 +8,7 @@
 				<tr>
 					<td>
 						<% if user.id != 1 %>
-							<%= check_box_tag "user_ids[]", user.id %>
+							<%= check_box_tag "user_ids[]",  'yes', false,class: "check_box" %>
 						<% end -%>
 						<%= user.name %>
 					</td>
@@ -16,3 +17,22 @@
 		</table>
 	<% end -%>
 </ul>
+<script>
+
+window.onload = function() {
+	var seleAll = document.getElementById('seleAll');
+	seleAll.onclick = function () { 
+	  var checkboxes = document.getElementsByClassName('check_box'); 
+	  var count = checkboxes.length; 
+	  for (var i = 0; i < count; i++) { 
+	  	  if (this.checked) {
+	  	  	checkboxes[i].checked = true; 
+	  	  } else {
+	  	  	checkboxes[i].checked = false; 
+	  	  }
+	  }
+	}
+}
+
+</script>
+
