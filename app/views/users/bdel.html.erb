@@ -8,7 +8,7 @@
 				<tr>
 					<td>
 						<% if user.id != 1 %>
-							<%= check_box_tag "user_ids[]",  'yes', false,class: "check_box" %>
+							<%= check_box_tag "user_ids[]",  user.id, false,class: "check_box" %>
 						<% end -%>
 						<%= user.name %>
 					</td>
